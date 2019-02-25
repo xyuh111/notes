@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .transition{
+      width:200px;
+      height:200px;
+      background:blue;
+      transition:all 5s;
+      transition-timing-function:linear;  /*进度*/
+    }
+    .transition:hover{
+        width:500px;
+        position:relative;
+        left: 10px;
+        background:brown;
+    }
+
+    .animation{
+        width:200px;
+        height: 200px;
+        background:rgb(59, 49, 49);
+        animation:run 1s linear;
+        /* 设置反向 */
+        /* animation-direction:reverse; */
+        /* 保持最后的状态 forwards  返回来 backwards*/
+        animation-fill-mode:forwards;
+        /* 循环次数  infinite 无限 可指定数字*/
+        /* animation-iteration-count: infinite; */
+        /* 播放状态 paused 为暂停  暂停时是保留状态的*/
+        animation-play-state: paused;
+        /* 关键帧动画  */
+        /* animation-timing-function: steps(1) */
+    }
+    @keyframes run{
+        10%{
+            width:100px;
+        }
+        80%{
+            width:2000px;
+        }
+        100%{
+            width:1000px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="transition"></div>
+    <div class="animation">
+
+    </div>    
+</body>
+</html>
