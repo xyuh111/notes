@@ -24,8 +24,7 @@ var ModalHelper = (function() {
         clearDefault(){
              document.body.style["position"] = "fixed"
              document.body.style.width = "100%"
-             document.body.style.width["overflow-x"] = "hidden"
-             document.body.style.width["overflow-y"] = "hidden"
+             document.body.style["overflow"] = "hidden"
              document.body.style["-webkit-overflow-scrolling"] = "touch"
         },
         // 保存 高度
