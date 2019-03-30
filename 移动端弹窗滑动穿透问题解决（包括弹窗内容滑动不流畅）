@@ -1,0 +1,45 @@
+
+```
+弹窗时调用
+this.ModalHelper.afterOpen()
+this.ModalHelper.clearDefault()
+
+关闭弹窗时调用
+this.ModalHelper.beforeClose()
+```
+```
+在弹窗中需要滑动的div 下设置样式
+div{
+   overflow-y: auto;
+   -webkit-overflow-scrolling: touch;
+}
+```
+
+```
+//阻止滑动 穿透
+var ModalHelper = (function() {
+  var scrollTop;
+  return {
+        // 关闭body 滑动
+        clearDefault(){
+             document.body.style["position"] = "fixed"
+             document.body.style.width = "100%"
+             document.body.style.width["overflow-x"] = "hidden"
+             document.body.style.width["overflow-y"] = "hidden"
+             document.body.style["-webkit-overflow-scrolling"] = "touch"
+        },
+        // 保存 高度
+        afterOpen: function() {
+          scrollTop = document.scrollingElement.scrollTop;
+          document.body.style.top = -scrollTop + 'px';
+        },
+        // 恢复滑动
+        beforeClose: function() {
+          document.body.style["position"] = "static"
+          document.body.style.width["overflow-y"] = "auto"
+          document.scrollingElement.scrollTop = scrollTop;
+        }
+  };
+})();
+
+```
